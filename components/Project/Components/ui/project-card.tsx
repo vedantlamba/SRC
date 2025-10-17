@@ -8,28 +8,42 @@ import {
 } from "@hugeicons/core-free-icons";
 import { Progress } from "@/components/ui/progress";
 
-
-
 interface Props {
-    projectName: string;
+  projectName: string;
+  projectType: string;
+  tags?: string[];
+  progressValue: number;
+  teamMember: string[];
+  projectPreviewPhoto: string;
 }
 
-
-export const ProjectCard = () => {
+export const ProjectCard = ({
+  projectName,
+  progressValue,
+  projectPreviewPhoto,
+  projectType,
+  teamMember,
+}: Props) => {
   return (
-    <div className="rounded-3xl bg-[#FBFBFB] lg:p-10">
+    <div className="rounded-3xl bg-[#FBFBFB] lg:p-10" key={projectName}>
       <div className="rounded-3xl shadow-sm p-5 bg-white flex flex-col gap-5">
         {/* Header  */}
         <div className="flex justify-between items-center flex-wrap gap-6">
           {/* //Project Members  */}
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
-              <img
-                src="/People/person-1.png"
-                alt="person-1"
-                className="rounded-full w-6 md:w-9"
-              />
-              <img
+              {teamMember.map((member, idx) => {
+                return (
+                  <img
+                    src={member}
+                    key={idx}
+                    alt={`${member}-1`}
+                    className="rounded-full w-6 md:w-9"
+                  />
+                );
+              })}
+
+              {/* <img
                 src="/People/person-2.png"
                 alt="person-1"
                 className="rounded-full w-6 md:w-9"
@@ -43,7 +57,7 @@ export const ProjectCard = () => {
                 src="/People/person-4.png"
                 alt="person-1"
                 className="rounded-full w-6 md:w-9"
-              />
+              /> */}
             </div>
 
             <button className="cursor-pointer">
@@ -73,9 +87,10 @@ export const ProjectCard = () => {
           {/* ///////  */}
         </div>
         {/* Header End  */}
+
         {/* Heading  */}
         <div>
-          <h3 className="font-normal text-xl">Landing Page Design</h3>
+          <h3 className="font-normal text-xl">{projectName}</h3>
         </div>
         {/* //////  */}
         {/* Link and tags  */}
@@ -104,17 +119,19 @@ export const ProjectCard = () => {
         {/* Progress Bar  */}
         <div className="flex items-center gap-3">
           <Progress
-            value={0}
+            value={progressValue}
             className="md:w-[60%] bg-transparent border border-[#D4FF00]"
           />
-          <span className="text-[#CACACA] text-sm tracking-wider">0%</span>
+          <span className="text-[#CACACA] text-sm tracking-wider">
+            {progressValue}%
+          </span>
         </div>
         {/* ///////  */}
         <div>
           <div className="h-56 rounded-3xl border">
             <img
-              src="https://images.pexels.com/photos/11813187/pexels-photo-11813187.jpeg"
-              alt="landing-page-image"
+              src={projectPreviewPhoto}
+              alt={`${projectName}-preview-photo`}
               className="h-full w-full object-cover rounded-3xl"
             />
           </div>
