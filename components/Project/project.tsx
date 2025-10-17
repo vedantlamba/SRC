@@ -60,7 +60,7 @@ export const ProjectPage = () => {
     <div>
       <div className="md:p-20 flex justify-center pt-10 flex-col px-5 lg:gap-30 gap-10">
         <ProjectHeader />
-        <div className="flex w-full flex-col lg:flex-row gap-20 flex-wrap">
+        <div className="flex w-full flex-col lg:flex-row gap-12 lg:gap-5 flex-wrap">
           <div className="flex-1 flex flex-col gap-10">
             <div className="flex gap-3 items-center">
               <Image
