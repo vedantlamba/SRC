@@ -1,51 +1,64 @@
+import { CompletedDialog } from "../Completed/completed-dialog";
+import { OnGoingDialog } from "../OnGoing/ongoing-dialog";
+import { TodoDialog } from "../Todo/todo-dialog";
+
 export const ProjectHeader = () => {
   return (
-    <div className="flex flex-col gap-4 md:gap-8">
-      <h2 className="text-2xl md:text-4xl tracking-tighter font-medium">
-        Projects
-      </h2>
-      <div className="flex gap-3 flex-wrap">
-        <div className="flex gap-1 flex-col">
-          <span className="font-bold text-lg md:text-2xl tracking-tighter">
-            45
-          </span>
-          <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
-            In Progress{" "}
-            <span className="self-end pb-1">
-              <Eclipse />
+    <div className="flex lg:flex-row flex-col gap-10">
+      <div className="flex flex-col gap-4 md:gap-8 flex-1">
+        <h2 className="text-2xl md:text-4xl tracking-tighter font-medium">
+          Projects
+        </h2>
+        <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-1 flex-col">
+            <span className="font-bold text-lg md:text-2xl tracking-tighter">
+              45
             </span>
-          </p>
-        </div>
-        <div className="flex gap-1 flex-col">
-          <span className="font-bold text-lg md:text-2xl tracking-tighter">
-            12
-          </span>
-          <p className="flex gap-3  font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
-            Completed{" "}
-            <span className="self-end pb-1">
-              <Eclipse />
+            <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
+              In Progress{" "}
+              <span className="self-end pb-1">
+                <Eclipse />
+              </span>
+            </p>
+          </div>
+          <div className="flex gap-1 flex-col">
+            <span className="font-bold text-lg md:text-2xl tracking-tighter">
+              12
             </span>
-          </p>
-        </div>
-        <div className="flex gap-1 flex-col">
-          <span className="font-bold text-lg md:text-2xl tracking-tighter">
-            10
-          </span>
-          <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
-            Upcoming{" "}
-            <span className="self-end pb-1">
-              <Eclipse />
+            <p className="flex gap-3  font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
+              Completed{" "}
+              <span className="self-end pb-1">
+                <Eclipse />
+              </span>
+            </p>
+          </div>
+          <div className="flex gap-1 flex-col">
+            <span className="font-bold text-lg md:text-2xl tracking-tighter">
+              10
             </span>
-          </p>
+            <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
+              Upcoming{" "}
+              <span className="self-end pb-1">
+                <Eclipse />
+              </span>
+            </p>
+          </div>
+          <div className="flex gap-1 flex-col">
+            <span className="font-bold text-lg md:text-2xl tracking-tighter">
+              67
+            </span>
+            <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
+              Total Projects{" "}
+            </p>
+          </div>
         </div>
-        <div className="flex gap-1 flex-col">
-          <span className="font-bold text-lg md:text-2xl tracking-tighter">
-            67
-          </span>
-          <p className="flex gap-3 font-normal tracking-tighter text-[#C4C4C4] md:text-xl text-sm">
-            Total Projects{" "}
-          </p>
-        </div>
+      </div>
+      {/*  Card Form Dialog Buttons  */}
+
+      <div className="flex justify-center items-end gap-2">
+        <TodoDialog />
+        <OnGoingDialog />
+        <CompletedDialog />
       </div>
     </div>
   );
